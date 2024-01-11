@@ -1,13 +1,13 @@
 import { promisify } from 'util';
-import mysql from 'mysql';
-import { NextResponse } from 'next/server';
 
+import { NextResponse } from 'next/server';
+import mysql from 'mysql';
 const connection = mysql.createConnection({
   host: "viaduct.proxy.rlwy.net",
   user: "root",
-  password: "AaFFDCBB3dAf-FAG6ff6Fga36f5bAC-f",
+  password: "D12DFGhGgh61eEGG3fc61-bD6Fca2a-A",
   database: "comida_colombiana",
-  port: "11471"
+  port: "45143"
 });
 
 const queryAsync = promisify(connection.query).bind(connection);
