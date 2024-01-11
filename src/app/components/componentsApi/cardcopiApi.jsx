@@ -64,7 +64,7 @@ const CardcopiApi = () => {
         <p>
           Aquí puedes ver una pequeña parte de la información que encontrarás
           en la API, para que la puedas utilizar a tu gusto. <br />
-          Aquí tienes la URL: <a href={contenido}>link</a>
+          Aquí tienes la URL: <a href="/api">link</a>
         </p>
       </div>
     </>

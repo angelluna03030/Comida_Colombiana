@@ -1,27 +1,34 @@
 import { promisify } from 'util';
-
 import { NextResponse } from 'next/server';
 import mysql from 'mysql';
-const connection = mysql.createConnection({
+
+const pool = mysql.createPool({
+  connectionLimit: 10,
   host: "bgzpkpgmmwcy0kgykxek-mysql.services.clever-cloud.com",
   user: "uoeluigsot4f2dou",
   password: "J802RxrUdkCP3UPt75gZ",
   database: "bgzpkpgmmwcy0kgykxek",
   port: "3306",
-  
-  
 });
 
-const queryAsync = promisify(connection.query).bind(connection);
+pool.getConnection((err, connection) => {
+  if (err) {
+    console.log("Error en la conexión:", err.message);
+  } else {
+    console.log("Conexión establecida");
+    connection.release();
+  }
+});
 
-export async function GET(request) {
-const {id} = await  parseInt(request.json()) ;
-let data;
-if(id === undefined){
-   data = await queryAsync("SELECT comidas.id_comidas, comidas.nombre_plato, categorias.nombre_categoria, departamentos.nombre_departamento, comidas.descripcion, comidas.ingredientes, comidas.src_imagen FROM comidas JOIN categorias ON comidas.id_categoria = categorias.id_categoria JOIN departamentos ON comidas.id_departamento = departamentos.id_departamento ORDER BY comidas.id_comidas ASC;");
-} else{
-data = await queryAsync("SELECT * FROM comidas WHERE id_comidas = "+ id )
-}
-     
+export async function GET() {
+  try {
+    const query = promisify(pool.query).bind(pool);
+
+    const data = await query("SELECT comidas.id_comidas, comidas.nombre_plato, categorias.nombre_categoria, departamentos.nombre_departamento, comidas.descripcion, comidas.ingredientes, comidas.src_imagen FROM comidas JOIN categorias ON comidas.id_categoria = categorias.id_categoria JOIN departamentos ON comidas.id_departamento = departamentos.id_departamento ORDER BY comidas.id_comidas ASC;");
+
     return NextResponse.json(data);
+  } catch (error) {
+    console.error("Error fetching data:", error.message);
+    return NextResponse.error("Internal Server Error");
+  }
 }
