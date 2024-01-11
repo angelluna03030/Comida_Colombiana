@@ -3,11 +3,13 @@ import { promisify } from 'util';
 import { NextResponse } from 'next/server';
 import mysql from 'mysql';
 const connection = mysql.createConnection({
-  host: "viaduct.proxy.rlwy.net",
-  user: "root",
-  password: "D12DFGhGgh61eEGG3fc61-bD6Fca2a-A",
-  database: "comida_colombiana",
-  port: "45143"
+  host: "bgzpkpgmmwcy0kgykxek-mysql.services.clever-cloud.com",
+  user: "uoeluigsot4f2dou",
+  password: "J802RxrUdkCP3UPt75gZ",
+  database: "bgzpkpgmmwcy0kgykxek",
+  port: "3306",
+  
+  
 });
 
 const queryAsync = promisify(connection.query).bind(connection);
