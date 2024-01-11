@@ -8,7 +8,7 @@ const CardGrande = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('http://localhost:3000/api');
+        const response = await fetch('comida-colombiana.vercel.app/api');
         const jsonData = await response.json();
 
         // Asegúrate de que hay al menos un elemento en la respuesta antes de establecer el estado
