@@ -1,7 +1,6 @@
 import { promisify } from 'util';
 import { NextResponse } from 'next/server';
 import mysql from 'mysql';
-
 const pool = mysql.createPool({
   connectionLimit: 10,
   host: "bgzpkpgmmwcy0kgykxek-mysql.services.clever-cloud.com",
