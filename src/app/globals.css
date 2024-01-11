@@ -889,6 +889,8 @@ margin-top: 3vw;
 margin-left: 20px;
 overflow: hidden;
 padding: 5px;
+width: 70px;
+
 }
 .toast-icon{
   cursor: pointer;
