@@ -3,10 +3,11 @@ import mysql from 'mysql';
 import { NextResponse } from 'next/server';
 
 const connection = mysql.createConnection({
-  host: "localhost",
+  host: "viaduct.proxy.rlwy.net",
   user: "root",
-  password: "",
-  database: "comida_colombiana"
+  password: "AaFFDCBB3dAf-FAG6ff6Fga36f5bAC-f",
+  database: "comida_colombiana",
+  port: "11471"
 });
 
 const queryAsync = promisify(connection.query).bind(connection);
