@@ -889,8 +889,11 @@ margin-top: 3vw;
 margin-left: 20px;
 overflow: hidden;
 padding: 5px;
-width: 70px;
 
+
+}
+.toast-content input{
+  width: 300px;
 }
 .toast-icon{
   cursor: pointer;
