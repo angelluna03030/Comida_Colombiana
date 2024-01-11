@@ -1,6 +1,6 @@
-import { promisify } from 'util';
 import { NextResponse } from 'next/server';
 import mysql from 'mysql';
+
 const pool = mysql.createPool({
   connectionLimit: 10,
   host: "bgzpkpgmmwcy0kgykxek-mysql.services.clever-cloud.com",
@@ -21,9 +21,19 @@ pool.getConnection((err, connection) => {
 
 export async function GET() {
   try {
-    const query = promisify(pool.query).bind(pool);
+    const queryAsync = (sql, values) => {
+      return new Promise((resolve, reject) => {
+        pool.query(sql, values, (error, results, fields) => {
+          if (error) {
+            reject(error);
+          } else {
+            resolve(results);
+          }
+        });
+      });
+    };
 
-    const data = await query("SELECT comidas.id_comidas, comidas.nombre_plato, categorias.nombre_categoria, departamentos.nombre_departamento, comidas.descripcion, comidas.ingredientes, comidas.src_imagen FROM comidas JOIN categorias ON comidas.id_categoria = categorias.id_categoria JOIN departamentos ON comidas.id_departamento = departamentos.id_departamento ORDER BY comidas.id_comidas ASC;");
+    const data = await queryAsync("SELECT comidas.id_comidas, comidas.nombre_plato, categorias.nombre_categoria, departamentos.nombre_departamento, comidas.descripcion, comidas.ingredientes, comidas.src_imagen FROM comidas JOIN categorias ON comidas.id_categoria = categorias.id_categoria JOIN departamentos ON comidas.id_departamento = departamentos.id_departamento ORDER BY comidas.id_comidas ASC;");
 
     return NextResponse.json(data);
   } catch (error) {
