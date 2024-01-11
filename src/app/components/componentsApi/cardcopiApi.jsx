@@ -3,7 +3,7 @@ import Image from "next/image";
 import clipboardCopy from "clipboard-copy";
 import React, { useEffect } from "react";
 const CardcopiApi = () => {
-  const contenido = "comida-colombiana.vercel.app/api";
+  const contenido = "/api";
 
 
 
