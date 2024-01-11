@@ -1,5 +1,6 @@
-"use client";import Image from 'next/image';
-import Card from './Card';
+"use client";
+
+import Card from './card';
 import { useEffect, useState } from 'react';
 import ModalCard from './modal'; // Asegúrate de importar correctamente el nombre del componente ModalCard
 
