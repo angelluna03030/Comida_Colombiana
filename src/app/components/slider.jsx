@@ -1,10 +1,7 @@
 "use client";
-
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
-
-import { useEffect, useState } from "react";
-import Card from './Card';
-
+import Card from "./Card"; // Asegúrate de usar la "C" mayúscula
 
 const Slider = () => {
   const [data, setData] = useState([]);
@@ -36,7 +33,7 @@ const Slider = () => {
         <div className="slider-track">
           {data.map((item) => (
             // biome-ignore lint/a11y/useKeyWithClickEvents: <explanation>
-            <div
+<div
               className="slide"
               key={item.id_comidas}
               onClick={() => handleCardClick(item)}
