@@ -1,9 +1,11 @@
-"use client";
+"use client"
+import React, { useEffect } from "react";
 import Image from "next/image";
 import clipboardCopy from "clipboard-copy";
-import React, { useEffect } from "react";
+
 const CardcopiApi = () => {
   const contenido = "/api";
+
   const copiarTexto = () => {
     try {
       clipboardCopy(contenido);
@@ -13,27 +15,21 @@ const CardcopiApi = () => {
     }
   };
 
-
-  // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
   useEffect(() => {
     // Solo ejecutar este código en el cliente
     if (typeof window !== "undefined") {
       const miBoton = document.getElementById("miBoton");
-  
+
       if (miBoton) {
-        const copiarTexto = () => {
-          // Tu lógica para copiar texto
-        };
-  
         miBoton.addEventListener("click", copiarTexto);
-  
+
         // Limpiar el event listener al desmontar el componente
         return () => {
           miBoton.removeEventListener("click", copiarTexto);
         };
       }
     }
-  }, []);
+  }, []); // No se necesita una dependencia aquí
 
   return (
     <>
@@ -58,8 +54,8 @@ const CardcopiApi = () => {
           <input readOnly value={contenido} />
         </div>
 
-        {/* biome-ignore lint/a11y/useKeyWithClickEvents: <explanation> */}
-        <div className="toast-icon" id="miBoton" onClick={copiarTexto()}>
+        {/* Corregir el manejo del evento onClick */}
+        <div className="toast-icon" id="miBoton" onClick={copiarTexto}>
           <Image
             src="/duplicar.png"
             width={20}
