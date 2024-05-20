@@ -1,8 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
-import Card from "./Card"; // Asegúrate de usar la "C" mayúscula
-
 const Slider = () => {
   const [data, setData] = useState([]);
   const [selectedItem, setSelectedItem] = useState(null);
@@ -79,3 +77,29 @@ const Slider = () => {
 };
 
 export default Slider;
+// biome-ignore lint/suspicious/noRedeclare: <explanation>
+const Card = ({ src_imagen, nombre_plato, nombre_departamento, nombre_categoria }) => {
+  return (
+    <div className="card">
+      <div className="Card__imagen">
+        <Image
+          src={src_imagen}
+          alt={nombre_plato}
+          title={nombre_plato}
+          width={350}
+          height={350}
+          className="imagenes"
+        />
+      </div>
+      <div className="Card__Contenido">
+        <br />
+        <span>
+          <center>{nombre_plato}</center>
+        </span>
+        Departamento: {nombre_departamento}
+        <br />
+        Categoría: {nombre_categoria}
+      </div>
+    </div>
+  );
+};
