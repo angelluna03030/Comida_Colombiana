@@ -1,8 +1,10 @@
 "use client";
 
 import Image from "next/image";
-import Card from "./Card";
+
 import { useEffect, useState } from "react";
+import Card from './Card';
+
 
 const Slider = () => {
   const [data, setData] = useState([]);
