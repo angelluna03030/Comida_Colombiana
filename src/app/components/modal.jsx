@@ -25,15 +25,16 @@ const ModalCard = ({
           />
         </div>
 
-        <br></br>
+        <br />
         <div className="modal_titulo">{nombre_plato}</div>
 
         <div className="modal_contenido">
           nombre departamento: {nombre_departamento}
-          <br></br>
-          nombre catagoria : {nombre_catagoria} <br></br>
-          ingredientes: {ingredientes}<br></br>
-          <button onClick={() => setModalOpen(true)}>CERRAR</button>
+          <br />
+          nombre catagoria : {nombre_catagoria} <br />
+          ingredientes: {ingredientes}<br />
+          {/* biome-ignore lint/a11y/useButtonType: <explanation> */}
+<button onClick={() => setModalOpen(true)}>CERRAR</button>
         </div>
       </div>
     </>

@@ -6,9 +6,11 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "seed" : "node -r dotenv/config ./scripts/seed.js"
   },
   "dependencies": {
+    "@vercel/postgres": "^0.5.1",
     "clipboard-copy": "^4.0.1",
     "framer-motion": "10.17.9",
     "mysql": "^2.18.1",
@@ -18,6 +20,7 @@
     "react-dom": "^18",
     "react-modal": "^3.16.1",
     "util": "^0.12.5"
+    
   },
   "devDependencies": {
     "autoprefixer": "^10.0.1",

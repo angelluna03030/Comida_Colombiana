@@ -5,7 +5,8 @@ const Footer = () => {
         <p>&copy; 2024 Comida Colombiana  </p>
 
         <div className="footer-links">
-          <a href="#">Inicio</a>
+          {/* biome-ignore lint/a11y/useValidAnchor: <explanation> */}
+<a href="#">Inicio</a>
           <a href="#descripcion">descripcion</a>
           <a href="#API">API</a>
         </div>

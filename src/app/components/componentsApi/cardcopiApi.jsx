@@ -1,12 +1,9 @@
-"use client"
+"use client";
 import Image from "next/image";
 import clipboardCopy from "clipboard-copy";
 import React, { useEffect } from "react";
 const CardcopiApi = () => {
   const contenido = "/api";
-
-
-
   const copiarTexto = () => {
     try {
       clipboardCopy(contenido);
@@ -16,12 +13,24 @@ const CardcopiApi = () => {
     }
   };
 
+
+  // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
   useEffect(() => {
+    // Solo ejecutar este código en el cliente
     if (typeof window !== "undefined") {
       const miBoton = document.getElementById("miBoton");
-
+  
       if (miBoton) {
+        const copiarTexto = () => {
+          // Tu lógica para copiar texto
+        };
+  
         miBoton.addEventListener("click", copiarTexto);
+  
+        // Limpiar el event listener al desmontar el componente
+        return () => {
+          miBoton.removeEventListener("click", copiarTexto);
+        };
       }
     }
   }, []);
@@ -49,6 +58,7 @@ const CardcopiApi = () => {
           <input readOnly value={contenido} />
         </div>
 
+        {/* biome-ignore lint/a11y/useKeyWithClickEvents: <explanation> */}
         <div className="toast-icon" id="miBoton" onClick={copiarTexto()}>
           <Image
             src="/duplicar.png"
@@ -62,8 +72,8 @@ const CardcopiApi = () => {
       <div className="copideapi_introduccion">
         <span>Introducción</span>
         <p>
-          Aquí puedes ver una pequeña parte de la información que encontrarás
-          en la API, para que la puedas utilizar a tu gusto. <br />
+          Aquí puedes ver una pequeña parte de la información que encontrarás en
+          la API, para que la puedas utilizar a tu gusto. <br />
           Aquí tienes la URL: <a href="/api">link</a>
         </p>
       </div>

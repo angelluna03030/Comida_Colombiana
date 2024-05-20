@@ -3,15 +3,12 @@ import React, { useState } from "react";
 import Image from "next/image";
 import ModalCard from "./modal";
 
-
 const Card = ({
   src_imagen,
   nombre_plato,
   nombre_departamento,
   nombre_categoria,
 }) => {
-
-
   return (
     <>
       <div className="card">
@@ -35,10 +32,6 @@ const Card = ({
           Categoría: {nombre_categoria}
         </div>
       </div>
-
-
-
-   
     </>
   );
 };

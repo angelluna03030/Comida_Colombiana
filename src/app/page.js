@@ -17,7 +17,7 @@ export default function Home() {
       <CardGrande />
       <CardGrande2 />
       <CardcopiApi/>
-      <Cardapi></Cardapi>
+      <Cardapi />
       <Footer />
     </>
   );

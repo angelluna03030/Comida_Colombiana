@@ -976,8 +976,10 @@ padding-top: 70px;
     }
   }
 
+
+
+
   .modal-overlay {
-  
     opacity: 1;
     position: fixed;
     top: 50%;
@@ -985,70 +987,59 @@ padding-top: 70px;
     transform: translate(-50%, -50%);
     width: 80%;
     max-width: 600px; /* Ajusta el ancho máximo según tus necesidades */
-    height: 100%;
-    max-height: 500px; /* Ajusta la altura máxima según tus necesidades */
+    height: 75%; /* Cambiado a auto para adaptarse al contenido */
+    max-height: 700px; /* Ajusta la altura máxima según tus necesidades */
     background: rgb(253, 253, 253);
-    display: flexbox;
-    
+    display: flex;
+    flex-direction: column; /* Asegura un flujo vertical de los elementos internos */
+    justify-content: center;
+    align-items: center; /* Centra los elementos horizontalmente */
     z-index: 9;
     border-radius: 5px;
     box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    overflow-y: auto; /* Permite desplazamiento si el contenido excede la altura */
   }
   
-
-
-
-.opasiti{
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
-
-.modal__imagen img{
-  padding: 20px;
-  width: 65%;
-  height: 65%;
-  margin: auto;
-
-}
-
-.modal_contenido{
-  font-size: 15px;
-  margin: auto;
-  justify-content: center;
-  text-align: center;
-}
-.modal_contenido button {
-  background-color: #053f5c;
-  border-radius: 25px;
-  padding: 10px;
-  margin-top: 10px;
-}
-.modal_titulo{
-  font-size: 25px;
-  margin: auto;
-  text-align: center;
-}
-
-@media screen and (max-width: 600px) {
-  .modal-overlay{
-    height: 100%;
-
+  .modal__imagen img {
+    max-width: 100%; /* Asegura que la imagen no exceda el ancho del modal */
+    max-height: 190px; /* Altura máxima para que no ocupe demasiado espacio */
+    object-fit: cover; /* Asegura que la imagen cubra el área sin perder proporciones */
   }
-  .modal__imagen img{
-    max-height: 250px;
-  width: 100%;
-  height: 100%;
-  max-height: 190px;
-  width: 80%;
-  height: 80%;
-
-  background-size: cover;
+  
+  .modal_contenido {
+    font-size: 15px;
+    margin: auto;
+    text-align: center;
   }
- 
+  
   .modal_contenido button {
-
- 
-   margin-top: 20px;
+    background-color: #053f5c;
+    color: white; /* Asegura que el texto sea legible */
+    border: none; /* Elimina el borde predeterminado */
+    cursor: pointer; /* Cambia el cursor a pointer para indicar clic */
+    border-radius: 25px;
+    padding: 10px;
+    margin-top: 10px;
   }
-}
+  
+  .modal_titulo {
+    font-size: 25px;
+    margin: auto;
+    text-align: center;
+  }
+  
+  @media screen and (max-width: 600px) {
+    .modal-overlay {
+      width: 90%; /* Un poco más ancho en móviles para usar más espacio */
+      max-height: 80%; /* Más alto permitido en pantallas pequeñas */
+    }
+  
+    .modal__imagen img {
+      max-height: 150px; /* Menor altura en dispositivos móviles */
+    }
+  
+    .modal_contenido button {
+      margin-top: 20px;
+    }
+  }
+    

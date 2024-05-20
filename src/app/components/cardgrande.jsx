@@ -43,7 +43,7 @@ const CardGrande = () => {
             width={450}
             height={450}
             alt={`Imagen de ${primerPlato.nombre_plato}`}
-            className="imagen"
+            className="imagen" 
           />
         </div>
         <div className="CardGrande_Contenido">

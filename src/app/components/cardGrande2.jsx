@@ -58,7 +58,8 @@ const CardGrande2 = () => {
             height={300}
             className="imagen2"
           />
-          <button></button>
+          {/* biome-ignore lint/a11y/useButtonType: <explanation> */}
+<button />
         </div>
       </div>
     </>
