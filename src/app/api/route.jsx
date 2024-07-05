@@ -3,11 +3,11 @@ import mysql from 'mysql';
 
 const pool = mysql.createPool({
   connectionLimit: 10,
-  host: "bgzpkpgmmwcy0kgykxek-mysql.services.clever-cloud.com",
-  user: "uoeluigsot4f2dou",
-  password: "J802RxrUdkCP3UPt75gZ",
-  database: "bgzpkpgmmwcy0kgykxek",
-  port: "3306",
+  host: process.env.NEXT_PUBLIC_HOST,
+  user: process.env.NEXT_PUBLIC_USER,
+  password: process.env.NEXT_PUBLIC_PASSWORD,
+  database: process.env.NEXT_PUBLIC_DATABASE,
+  port: process.env.NEXT_PUBLIC_PORT,
   connectTimeout: 10000, // 10 seconds
   acquireTimeout: 10000, // 10 seconds
   waitForConnections: true,

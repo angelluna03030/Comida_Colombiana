@@ -83,6 +83,7 @@ const Card = ({ src_imagen, nombre_plato, nombre_departamento, nombre_categoria 
     <div className="card">
       <div className="Card__imagen">
         <Image
+        
           src={src_imagen}
           alt={nombre_plato}
           title={nombre_plato}

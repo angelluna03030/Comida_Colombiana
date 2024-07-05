@@ -4,7 +4,8 @@ import Image from "next/image";
 import clipboardCopy from "clipboard-copy";
 
 const CardcopiApi = () => {
-  const contenido = "/api";
+  const URL = process.env.NEXT_PUBLIC_URL;
+  const contenido =  `${URL}/api`;
 
   const copiarTexto = () => {
     try {
@@ -15,6 +16,7 @@ const CardcopiApi = () => {
     }
   };
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
   useEffect(() => {
     // Solo ejecutar este código en el cliente
     if (typeof window !== "undefined") {
@@ -54,8 +56,9 @@ const CardcopiApi = () => {
           <input readOnly value={contenido} />
         </div>
 
-        {/* Corregir el manejo del evento onClick */}
-        <div className="toast-icon" id="miBoton" onClick={copiarTexto}>
+    
+        {/* biome-ignore lint/a11y/useKeyWithClickEvents: <explanation> */}
+<div className="toast-icon" id="miBoton" onClick={copiarTexto}>
           <Image
             src="/duplicar.png"
             width={20}
